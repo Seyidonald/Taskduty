@@ -2,6 +2,7 @@ import express, { json } from 'express'; // the middleware is passed in between 
 import dotenv from 'dotenv';
 import createHttpErrors, { isHttpError } from 'http-errors';
 import userRoutes from './routes/user.js';
+import cors from 'cors'
 
 //b4 we initialise our express we want d info from env file to read so we do
 
@@ -9,6 +10,7 @@ dotenv.config(); //loads environmental variable from .env file
 //setting up the express
 //a middle ware for pasing info. how we senfd info from the backend to d frontend
 const app = express();
+app.use(cors())
 app.use(json()); // then we call the json format here
 
 //then we create our routes
